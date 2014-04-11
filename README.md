@@ -1,7 +1,7 @@
 Calculator
 ==========
 
-Simple Calculator (Java)
+* Simple Calculator (Java) 
+* Continuous Integration using [Snap-CI](https://snap-ci.com/projects/prabhamatta)
 
 
-Just your normal everyday Calculator with basic functions 
