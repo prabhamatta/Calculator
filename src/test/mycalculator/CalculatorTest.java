@@ -75,9 +75,14 @@ public class CalculatorTest {
     }
 
 
-
-
-
-
+    @Test
+    public void TestingDivisionByZero_FiveDividedByZeroGivesError(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('5');
+        calc.enterOperator('/');
+        calc.enterDigit('0');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "ERR: Division by 0");
+    }
 
 }
