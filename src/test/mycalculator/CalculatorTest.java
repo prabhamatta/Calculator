@@ -36,6 +36,20 @@ public class CalculatorTest {
 //        System.out.println("End...");
     }
 
+    @Test
+    public void TestingMultipleOperatorsNinePlusTwoPlusTwoIsThirteen(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('9');
+        calc.enterOperator('+');
+        calc.enterDigit('2');
+        calc.enterOperator('+');
+        calc.enterDigit('2');
+        calc.enterOperator('=');
+
+        assertEquals(calc.getDisplayText(), "13=");
+//        System.out.println("End...");
+    }
+
 
 
 }
