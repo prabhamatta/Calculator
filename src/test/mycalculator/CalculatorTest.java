@@ -63,6 +63,18 @@ public class CalculatorTest {
     }
 
 
+    @Test
+    public void TestingIntegerDivisionOneZeroDividedByTwoIsFive(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('1');
+        calc.enterDigit('0');
+        calc.enterOperator('/');
+        calc.enterDigit('2');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "5=");
+    }
+
+
 
 
 
