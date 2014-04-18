@@ -1,14 +1,13 @@
 package mycalculator;
+/**
+* Job of the CalculatorFrame:  understands the UI of calculator
+ * Created by prabha on 4/4/14.
+ */
 
-import java.awt.Color;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class CalculatorFrame extends JFrame {
 

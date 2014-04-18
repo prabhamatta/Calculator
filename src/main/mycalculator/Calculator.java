@@ -1,5 +1,11 @@
 package mycalculator;
 
+/**
+ * Job of Calculator:  understands basic arithmetic operations  and operates on numbers
+ * Created by prabha on 4/4/14.
+ */
+
+
 public class Calculator {
 
 	// OPERATOR state constant.
