@@ -11,13 +11,17 @@ import static junit.framework.Assert.assertEquals;
 
 public class CalculatorTest {
 
-    @Test
-    public void testNothing() {
-    }
 
     @Test
-    public void dummyTestTwoPlusTwoEqualsFour(){
-        assertEquals(4, (2+2));
+    public void TestingMultipleOperatorsNinePlusTwoPlusTwoIsThirteen(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('9');
+        calc.enterOperator('+');
+        calc.enterDigit('2');
+        calc.enterOperator('+');
+        calc.enterDigit('2');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "13=");
     }
 
     @Test
@@ -37,17 +41,14 @@ public class CalculatorTest {
     }
 
     @Test
-    public void TestingMultipleOperatorsNinePlusTwoPlusTwoIsThirteen(){
+    public void LatestOperatorTakesPrecedenceNinePlusAndSubtractTwoSeven(){
         Calculator calc = new Calculator();
         calc.enterDigit('9');
         calc.enterOperator('+');
-        calc.enterDigit('2');
-        calc.enterOperator('+');
+        calc.enterOperator('-');
         calc.enterDigit('2');
         calc.enterOperator('=');
-
-        assertEquals(calc.getDisplayText(), "13=");
-//        System.out.println("End...");
+        assertEquals(calc.getDisplayText(), "7=");
     }
 
 
