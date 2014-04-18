@@ -51,6 +51,21 @@ public class CalculatorTest {
         assertEquals(calc.getDisplayText(), "7=");
     }
 
+    @Test
+    public void TestingDoubleDigitsOneFourPlusFiveIsNineteen(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('1');
+        calc.enterDigit('4');
+        calc.enterOperator('+');
+        calc.enterDigit('5');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "19=");
+    }
+
+
+
+
+
 
 
 }
