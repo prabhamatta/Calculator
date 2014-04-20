@@ -51,6 +51,8 @@ public class CalculatorTest {
         assertEquals(calc.getDisplayText(), "7=");
     }
 
+
+
     @Test
     public void TestingDoubleDigitsOneFourPlusFiveIsNineteen(){
         Calculator calc = new Calculator();
@@ -120,5 +122,19 @@ public class CalculatorTest {
         calc.enterDigit('4');
         calc.enterOperator('=');
         assertEquals("13.7=",calc.getDisplayText() );
+    }
+
+    @Test
+    public void DecimalArith_LatestOperatorTakesPrecedenceNinePlusAndSubtractTwoSeven(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('9');
+        calc.enterOperator('+');
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('-');
+        calc.enterDigit('2');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "10.4=");
     }
 }
