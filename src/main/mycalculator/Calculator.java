@@ -53,7 +53,8 @@ public class Calculator {
 		if (state == NUM) {
             if (containsPt){
                 String s = digit + "";
-                num2 = num2.add( BigDecimal.valueOf(Integer.parseInt(s)).divide(BigDecimal.valueOf(10)));
+                num2  =  num2.add(BigDecimal.valueOf(Integer.parseInt(s)).movePointLeft(orderOfMagnitudeAfterDecimal));
+//                num2 = num2.add(BigDecimal.valueOf(Integer.parseInt(s)).divide(temp1));
                 ++orderOfMagnitudeAfterDecimal;
                 state = NUM;
             }
@@ -158,6 +159,14 @@ public class Calculator {
 
 		}
 
+        if(containsPt && (orderOfMagnitudeAfterDecimal==1)){
+            if (op1 != 61) {
+                s = ""+ num1 + op1+ num2 + ".";
+            } else {
+                s = "" + num2 + ".";
+            }
+        }
+
 		return s;
 	}
 
@@ -188,10 +197,11 @@ public class Calculator {
 	}
 
 	public void reset() {
-		num1 = BigDecimal.valueOf(0);
-		op1 = '=';
-		num2 = BigDecimal.valueOf(0);
-		state = OPR;
+        containsPt = false;
+        num1 = BigDecimal.valueOf(0);
+        op1 = '=';
+        num2 = BigDecimal.valueOf(0);
+        state = OPR;
 
 	}
 
@@ -232,13 +242,19 @@ public class Calculator {
 
 
     public void enterPoint() {
-//        String s = "";
-        containsPt = true;
-//        s = "" + num2 + ".0";
 
-//        num2 = new BigDecimal(s);
-        state = NUM;
-        ++orderOfMagnitudeAfterDecimal;
+        if(state==NUM){
+            containsPt = true;
+            state = NUM;
+            ++orderOfMagnitudeAfterDecimal;
+        }
+        else{
+            num2 = BigDecimal.valueOf(0);
+            containsPt = true;
+            state = NUM;
+            orderOfMagnitudeAfterDecimal = 1;
+        }
+
 
     }
 }

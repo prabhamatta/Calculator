@@ -125,7 +125,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void DecimalArith_LatestOperatorTakesPrecedenceNinePlusAndSubtractTwoSeven(){
+    public void DecimalArith_LatestOperatorTakesPrecedenceNinePlusThreePointFourSubtractTwoIsTenPointFour(){
         Calculator calc = new Calculator();
         calc.enterDigit('9');
         calc.enterOperator('+');
@@ -136,5 +136,18 @@ public class CalculatorTest {
         calc.enterDigit('2');
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "10.4=");
+    }
+
+    @Test
+    public void ThreePointFourSubtractPointThreeIsThreePointOne(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('-');
+        calc.enterPoint();
+        calc.enterDigit('3');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "3.1=");
     }
 }
