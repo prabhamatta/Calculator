@@ -95,4 +95,30 @@ public class CalculatorTest {
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "3.33=");
     }
+
+    @Test
+    public void TestingSingleDecimal_TenDivideThreeIsThreePointThreeThree(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('1');
+        calc.enterDigit('0');
+        calc.enterOperator('/');
+        calc.enterDigit('3');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "3.33=");
+    }
+
+    @Test
+    public void TenPointThreeAddThreePointThreeThreeIs13Point33(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('1');
+        calc.enterDigit('0');
+        calc.enterPoint();
+        calc.enterDigit('3');
+        calc.enterOperator('+');
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('=');
+        assertEquals("13.7=",calc.getDisplayText() );
+    }
 }

@@ -51,12 +51,22 @@ public class Calculator {
 	public void enterDigit(char digit) {
 
 		if (state == NUM) {
-			String s = digit + "";
-            num2 = (BigDecimal.valueOf(10).multiply(num2)).add( BigDecimal.valueOf(Integer.parseInt(s)));
-			state = NUM;
+            if (containsPt){
+                String s = digit + "";
+                num2 = num2.add( BigDecimal.valueOf(Integer.parseInt(s)).divide(BigDecimal.valueOf(10)));
+                ++orderOfMagnitudeAfterDecimal;
+                state = NUM;
+            }
+            else{
+                String s = digit + "";
+                num2 = (BigDecimal.valueOf(10).multiply(num2)).add( BigDecimal.valueOf(Integer.parseInt(s)));
+                state = NUM;
+            }
 		} else if (state == OPR) {
 			String s = "" + digit;
 			num2 =  BigDecimal.valueOf(Integer.parseInt(s));
+            orderOfMagnitudeAfterDecimal = 0;
+            containsPt = false;
 			state = NUM;
 		} else {
 			String s = digit + "";
@@ -110,12 +120,22 @@ public class Calculator {
 		String s = "";
 
 		if (state == NUM) {
-			if (op1 != 61) {
 
-				s = "" + num1 + op1 + num2;
-			} else {
-				s = "" + num2;
-			}
+            if(containsPt && (orderOfMagnitudeAfterDecimal==1)){
+                if (op1 != 61) {
+                    s = ""+ num1 + op1+ num2 + ".";
+                } else {
+                    s = "" + num2 + ".";
+                }
+            }
+            else{
+                if (op1 != 61) {
+
+                    s = "" + num1 + op1 + num2;
+                } else {
+                    s = "" + num2;
+                }
+            }
 		}
 
 		if (state == OPR) {
@@ -212,8 +232,13 @@ public class Calculator {
 
 
     public void enterPoint() {
+//        String s = "";
         containsPt = true;
-//        num2 = num2;
-//        state = PT;
+//        s = "" + num2 + ".0";
+
+//        num2 = new BigDecimal(s);
+        state = NUM;
+        ++orderOfMagnitudeAfterDecimal;
+
     }
 }
