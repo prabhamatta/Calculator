@@ -18,7 +18,7 @@ public class CalculatorFrame extends JFrame {
 	private JButton[] btnDigit;
 	private JButton btnAdd, btnSub, btnMul, btnDiv, btnCalc;
 	private JButton btnMr, btnMc, btnMs, btnMplus;
-	private JButton btnC, btnCe, btnClear, btnChangeSign;
+	private JButton btnC, btnCe, btnClear, btnChangeSign, btnPoint;
 	private DigitController digitCtrl = new DigitController();
 	private OperatorController oprCtrl = new OperatorController();
 	private MemoryController memCtrl = new MemoryController();
@@ -160,6 +160,13 @@ public class CalculatorFrame extends JFrame {
 		btnCe.setFont(new Font("arial", Font.PLAIN, 17));
 		btnCe.setForeground(Color.RED);
 
+        btnPoint = new JButton(".");
+        pnlContent.add(btnPoint);
+        btnPoint.setSize(wh, wh);
+        btnPoint.setLocation(e, 395);
+        btnPoint.addActionListener(speCtrl);
+        btnPoint.setFont(new Font("arial", Font.PLAIN, 35));
+
 		btnClear = new JButton("<X");
 		pnlContent.add(btnClear);
 		btnClear.setSize(wh, wh);
@@ -167,12 +174,12 @@ public class CalculatorFrame extends JFrame {
 		btnClear.addActionListener(speCtrl);
 		btnClear.setFont(new Font("arial", Font.PLAIN, 17));
 
-		btnChangeSign = new JButton("+/-");
-		pnlContent.add(btnChangeSign);
-		btnChangeSign.setSize(wh, wh);
-		btnChangeSign.setLocation(e, 395);
-		btnChangeSign.addActionListener(speCtrl);
-		btnChangeSign.setFont(new Font("arial", Font.PLAIN, 17));
+//		btnChangeSign = new JButton("+/-");
+//		pnlContent.add(btnChangeSign);
+//		btnChangeSign.setSize(wh, wh);
+//		btnChangeSign.setLocation(e, 395);
+//		btnChangeSign.addActionListener(speCtrl);
+//		btnChangeSign.setFont(new Font("arial", Font.PLAIN, 17));
 
 	}
 
@@ -238,7 +245,9 @@ public class CalculatorFrame extends JFrame {
 				btnCe.setEnabled(false);
 				btnClear.setEnabled(false);
 				btnChangeSign.setEnabled(false);
-				for (int i = 0; i < 10; i++) {
+                btnPoint.setEnabled(false);
+
+                for (int i = 0; i < 10; i++) {
 					btnDigit[i].setEnabled(false);
 				}
 
@@ -291,7 +300,9 @@ public class CalculatorFrame extends JFrame {
 				btnCe.setEnabled(true);
 				btnClear.setEnabled(true);
 				btnChangeSign.setEnabled(true);
-				for (int i = 0; i < 10; i++) {
+                btnPoint.setEnabled(true);
+
+                for (int i = 0; i < 10; i++) {
 					btnDigit[i].setEnabled(true);
 				}
 			}
@@ -304,10 +315,14 @@ public class CalculatorFrame extends JFrame {
 				txfDisplay.setText(calculator.getDisplayText());
 
 			}
-			if (e.getSource() == btnChangeSign) {
-				calculator.changeSign();
-				txfDisplay.setText(calculator.getDisplayText());
-			}
+//			if (e.getSource() == btnChangeSign) {
+//				calculator.changeSign();
+//				txfDisplay.setText(calculator.getDisplayText());
+//			}
+            if (e.getSource() == btnPoint) {
+                calculator.enterPoint();
+                txfDisplay.setText(calculator.getDisplayText());
+            }
 		}
 	}
 }
