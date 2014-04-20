@@ -1,6 +1,7 @@
 package mycalculator;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 /**
  * Job of Calculator:  understands basic arithmetic operations  and operates on numbers
@@ -33,6 +34,8 @@ public class Calculator {
 
 	private BigDecimal mem; // memory
     private boolean containsPt;   // for point
+    private int orderOfMagnitudeAfterDecimal = 0;  //to handle decimal calculations
+
 
 
     public Calculator() {
@@ -81,7 +84,7 @@ public class Calculator {
 			} else if (op1 == 45) {
 				num1 = num1.subtract(num2);
 			} else if (op1 == 47) {
-				num1 = num1.divide(num2);
+				num1 = (num1.divide(num2, new MathContext(5)));
 			} else if (op1 == 42) {
 				num1 = num1.multiply(num2);
 			} else if (op1 == 61) {
