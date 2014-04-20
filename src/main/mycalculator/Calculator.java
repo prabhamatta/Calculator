@@ -84,7 +84,7 @@ public class Calculator {
 			} else if (op1 == 45) {
 				num1 = num1.subtract(num2);
 			} else if (op1 == 47) {
-				num1 = (num1.divide(num2, new MathContext(5)));
+				num1 = (num1.divide(num2, new MathContext(3)));
 			} else if (op1 == 42) {
 				num1 = num1.multiply(num2);
 			} else if (op1 == 61) {

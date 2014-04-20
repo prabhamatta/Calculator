@@ -85,4 +85,14 @@ public class CalculatorTest {
         assertEquals(calc.getDisplayText(), "ERR: Division by 0");
     }
 
+    @Test
+    public void TestingNonTerminatingDecimal_TenDivideThreeIsThreePointThreeThree(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('1');
+        calc.enterDigit('0');
+        calc.enterOperator('/');
+        calc.enterDigit('3');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "3.33=");
+    }
 }
