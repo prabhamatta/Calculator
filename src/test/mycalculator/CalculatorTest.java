@@ -139,6 +139,21 @@ public class CalculatorTest {
     }
 
     @Test
+    public void TestingMultipleDigitsAfterDecimal_ThreePointFourFourSubtractPointThreeIsThreePointOneFour(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterDigit('4');
+        calc.enterOperator('-');
+        calc.enterPoint();
+        calc.enterDigit('3');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "3.14=");
+    }
+
+
+    @Test
     public void ThreePointFourSubtractPointThreeIsThreePointOne(){
         Calculator calc = new Calculator();
         calc.enterDigit('3');
@@ -150,4 +165,5 @@ public class CalculatorTest {
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "3.1=");
     }
+
 }
