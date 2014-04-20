@@ -110,7 +110,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void TenPointThreeAddThreePointThreeThreeIs13Point33(){
+    public void DecimalArith_TenPointThreeAddThreePointThreeThreeIs13Point33(){
         Calculator calc = new Calculator();
         calc.enterDigit('1');
         calc.enterDigit('0');
