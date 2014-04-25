@@ -166,4 +166,21 @@ public class CalculatorTest {
         assertEquals(calc.getDisplayText(), "3.1=");
     }
 
+    @Test
+    public void TestingMultipleArithmeticOperationsOnDecimalNumbers(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('*');
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('-');
+        calc.enterPoint();
+        calc.enterDigit('3');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "11.26=");
+    }
+
 }
