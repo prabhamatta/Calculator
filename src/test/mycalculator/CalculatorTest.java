@@ -183,4 +183,20 @@ public class CalculatorTest {
         assertEquals(calc.getDisplayText(), "11.26=");
     }
 
+    @Test
+    public void CombinedMultipleOperationsOnDecimalAndIntegers(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('*');
+        calc.enterDigit('3');
+        calc.enterPoint();
+        calc.enterDigit('4');
+        calc.enterOperator('-');
+        calc.enterDigit('3');
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "8.56=");
+    }
+
 }
