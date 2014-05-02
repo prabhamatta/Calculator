@@ -201,6 +201,7 @@ public class CalculatorTest {
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "-5=");
     }
+
     @Test
     public void FivePointTwoChangeSignShouldGiveMinusFivePointTwo(){
         Calculator calc = new Calculator();
@@ -210,5 +211,16 @@ public class CalculatorTest {
         calc.changeSign();
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "-5.2=");
+    }
+
+    @Test
+    public void FiveAddFourChangeSignShouldGiveOne(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('5');
+        calc.enterOperator('+');
+        calc.enterDigit('4');
+        calc.changeSign();
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "1=");
     }
 }
