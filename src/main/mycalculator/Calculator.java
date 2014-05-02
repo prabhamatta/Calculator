@@ -235,10 +235,8 @@ public class Calculator {
 		if (state == OPR) {
 
             num1 = num1.negate();
-//            num1 = num1.subtract(num2.multiply(BigDecimal.valueOf(2)));
 		} else {
             num2 = num2.negate();
-//            num2 = num1.subtract(num2.multiply(BigDecimal.valueOf(2)));
 
 		}
 	}
