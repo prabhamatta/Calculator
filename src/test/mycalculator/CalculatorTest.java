@@ -223,4 +223,17 @@ public class CalculatorTest {
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "1=");
     }
+
+    @Test
+    public void FiveAddTwoPointFiveChangeSignShouldGiveTwoPointFive(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('5');
+        calc.enterOperator('+');
+        calc.enterDigit('2');
+        calc.enterPoint();
+        calc.enterDigit('5');
+        calc.changeSign();
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "2.5=");
+    }
 }
