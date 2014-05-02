@@ -163,23 +163,26 @@ public class CalculatorFrame extends JFrame {
         btnPoint = new JButton(".");
         pnlContent.add(btnPoint);
         btnPoint.setSize(wh, wh);
-        btnPoint.setLocation(e, 395);
+        btnPoint.setLocation(e, 315);
         btnPoint.addActionListener(speCtrl);
         btnPoint.setFont(new Font("arial", Font.PLAIN, 35));
 
-		btnClear = new JButton("<X");
-		pnlContent.add(btnClear);
-		btnClear.setSize(wh, wh);
-		btnClear.setLocation(e, 315);
-		btnClear.addActionListener(speCtrl);
-		btnClear.setFont(new Font("arial", Font.PLAIN, 17));
 
-//		btnChangeSign = new JButton("+/-");
-//		pnlContent.add(btnChangeSign);
-//		btnChangeSign.setSize(wh, wh);
-//		btnChangeSign.setLocation(e, 395);
-//		btnChangeSign.addActionListener(speCtrl);
-//		btnChangeSign.setFont(new Font("arial", Font.PLAIN, 17));
+
+
+//		btnClear = new JButton("<X");
+//		pnlContent.add(btnClear);
+//		btnClear.setSize(wh, wh);
+//		btnClear.setLocation(e, 315);
+//		btnClear.addActionListener(speCtrl);
+//		btnClear.setFont(new Font("arial", Font.PLAIN, 35));
+
+		btnChangeSign = new JButton("+/-");
+		pnlContent.add(btnChangeSign);
+		btnChangeSign.setSize(wh, wh);
+		btnChangeSign.setLocation(e, 395);
+		btnChangeSign.addActionListener(speCtrl);
+		btnChangeSign.setFont(new Font("arial", Font.PLAIN, 17));
 
 	}
 
@@ -315,10 +318,10 @@ public class CalculatorFrame extends JFrame {
 				txfDisplay.setText(calculator.getDisplayText());
 
 			}
-//			if (e.getSource() == btnChangeSign) {
-//				calculator.changeSign();
-//				txfDisplay.setText(calculator.getDisplayText());
-//			}
+			if (e.getSource() == btnChangeSign) {
+				calculator.changeSign();
+				txfDisplay.setText(calculator.getDisplayText());
+			}
             if (e.getSource() == btnPoint) {
                 calculator.enterPoint();
                 txfDisplay.setText(calculator.getDisplayText());

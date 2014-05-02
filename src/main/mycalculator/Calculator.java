@@ -95,7 +95,7 @@ public class Calculator {
 			} else if (op1 == 45) {
 				num1 = num1.subtract(num2);
 			} else if (op1 == 47) {
-				num1 = (num1.divide(num2, new MathContext(3)));
+				num1 = (num1.divide(num2, new MathContext(6)));
 			} else if (op1 == 42) {
 				num1 = num1.multiply(num2);
 			} else if (op1 == 61) {
@@ -220,7 +220,7 @@ public class Calculator {
 
 	public void removeDigit() {
 
-		if (state == NUM)
+		if (state == OPR)
 			if (num2 != BigDecimal.valueOf(0)) {
 				if (num2.divide(BigDecimal.valueOf(10))== BigDecimal.valueOf(0)) {
 					state = OPR;
@@ -231,14 +231,17 @@ public class Calculator {
 
 	}
 
-//	public void changeSign() {
-//		if (state == OPR) {
-//			num1 = num1 - BigDecimal.valueOf(2)* num1;
-//		} else {
-//			num2 = num2 - 2 * num2;
-//
-//		}
-//	}
+	public void changeSign() {
+		if (state == OPR) {
+
+            num1 = num1.negate();
+//            num1 = num1.subtract(num2.multiply(BigDecimal.valueOf(2)));
+		} else {
+            num2 = num2.negate();
+//            num2 = num1.subtract(num2.multiply(BigDecimal.valueOf(2)));
+
+		}
+	}
 
 
     public void enterPoint() {

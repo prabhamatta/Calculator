@@ -95,7 +95,7 @@ public class CalculatorTest {
         calc.enterOperator('/');
         calc.enterDigit('3');
         calc.enterOperator('=');
-        assertEquals(calc.getDisplayText(), "3.33=");
+        assertEquals(calc.getDisplayText(), "3.33333=");
     }
 
     @Test
@@ -106,7 +106,7 @@ public class CalculatorTest {
         calc.enterOperator('/');
         calc.enterDigit('3');
         calc.enterOperator('=');
-        assertEquals(calc.getDisplayText(), "3.33=");
+        assertEquals(calc.getDisplayText(), "3.33333=");
     }
 
     @Test
@@ -199,4 +199,12 @@ public class CalculatorTest {
         assertEquals(calc.getDisplayText(), "8.56=");
     }
 
+    @Test
+    public void FiveChangeSignShouldGiveMinusFive(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('5');
+        calc.changeSign();
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "-5=");
+    }
 }
