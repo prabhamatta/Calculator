@@ -28,16 +28,10 @@ public class CalculatorTest {
     public void NinePlusTwoIsEleven(){
         Calculator calc = new Calculator();
         calc.enterDigit('9');
-//        System.out.println(calc.getDisplayText());
         calc.enterOperator('+');
-//        System.out.println(calc.getDisplayText());
         calc.enterDigit('2');
-//        System.out.println(calc.getDisplayText());
         calc.enterOperator('=');
-//        System.out.println(calc.getDisplayText());
-
         assertEquals(calc.getDisplayText(), "11=");
-//        System.out.println("End...");
     }
 
     @Test
@@ -206,5 +200,15 @@ public class CalculatorTest {
         calc.changeSign();
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "-5=");
+    }
+    @Test
+    public void FivePointTwoChangeSignShouldGiveMinusFivePointTwo(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('5');
+        calc.enterPoint();
+        calc.enterDigit('2');
+        calc.changeSign();
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "-5.2=");
     }
 }
