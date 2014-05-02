@@ -236,4 +236,20 @@ public class CalculatorTest {
         calc.enterOperator('=');
         assertEquals(calc.getDisplayText(), "2.5=");
     }
+
+    @Test
+    public void TestingMulipleOperationsWithChangeSign_FiveAddTwoPointFiveMinusTenChangeSignShouldGiveSeventeenPointFive(){
+        Calculator calc = new Calculator();
+        calc.enterDigit('5');
+        calc.enterOperator('+');
+        calc.enterDigit('2');
+        calc.enterPoint();
+        calc.enterDigit('5');
+        calc.enterOperator('-');
+        calc.enterDigit('1');
+        calc.enterDigit('0');
+        calc.changeSign();
+        calc.enterOperator('=');
+        assertEquals(calc.getDisplayText(), "17.5=");
+    }
 }
